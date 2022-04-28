@@ -1,0 +1,104 @@
+object Form1: TForm1
+  Left = 531
+  Height = 550
+  Top = 145
+  Width = 551
+  Caption = 'Form1'
+  OnCreate = FormCreate
+  LCLVersion = '2.0.12.0'
+  object frReport1: TfrReport
+    InitialZoom = pzDefault
+    ModalPreview = False
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    ShowProgress = False
+    DataType = dtDataSet
+    Left = 55
+    Top = 16
+  end
+  object PReport1: TPReport
+    FileName = 'default.pdf'
+    CreationDate = 44637.4332378935
+    UseOutlines = False
+    ViewerPreference = []
+    Left = 55
+    Top = 88
+  end
+  object frTNPDFExport1: TfrTNPDFExport
+    Left = 55
+    Top = 168
+  end
+  object IBConnection1: TIBConnection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'c:\dev\dados\base.gdb'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'SYSDBA'
+    HostName = '10.1.6.22'
+    CheckTransactionParams = False
+    UseConnectionCharSetIfNone = False
+    Left = 192
+    Top = 37
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = IBConnection1
+    Left = 288
+    Top = 37
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'NAME'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'VALOR'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'AUTOLOAD'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'VALUE'
+        DataType = ftMemo
+        Precision = -1
+        Size = 8
+      end>
+    Active = True
+    Database = IBConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT * FROM TBLOPTIONS;'
+    )
+    Params = <>
+    Left = 384
+    Top = 37
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 456
+    Top = 40
+  end
+  object frDBDataSet1: TfrDBDataSet
+    DataSet = SQLQuery1
+    Left = 192
+    Top = 112
+  end
+end

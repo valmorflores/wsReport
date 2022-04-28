@@ -1,0 +1,18 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 494
+  HorizontalOffset = 431
+  VerticalOffset = 189
+  Width = 534
+  object ODBCConnection1: TODBCConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'producao'
+    KeepConnection = True
+    Password = 'prdca395mv'
+    UserName = 'dbamv'
+    HostName = 'localhost'
+    Left = 72
+    Top = 40
+  end
+end
