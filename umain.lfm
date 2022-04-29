@@ -1,0 +1,123 @@
+object frmMain: TfrmMain
+  Left = 365
+  Height = 613
+  Top = 132
+  Width = 913
+  Caption = 'Editor de relatórios'
+  ClientHeight = 593
+  ClientWidth = 913
+  Menu = MainMenu1
+  LCLVersion = '2.0.12.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 34
+    Top = 0
+    Width = 913
+    Align = alTop
+    ClientHeight = 34
+    ClientWidth = 913
+    TabOrder = 0
+    object Button1: TButton
+      Left = 1
+      Height = 32
+      Top = 1
+      Width = 95
+      Align = alLeft
+      Caption = 'Executar'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object edFile: TEdit
+      Left = 96
+      Height = 32
+      Top = 1
+      Width = 816
+      Align = alClient
+      TabOrder = 1
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 242
+    Top = 34
+    Width = 913
+    Align = alTop
+    Caption = 'Panel3'
+    ClientHeight = 242
+    ClientWidth = 913
+    TabOrder = 1
+    object Panel2: TPanel
+      Left = 1
+      Height = 22
+      Top = 1
+      Width = 911
+      Align = alTop
+      Caption = 'SQL'
+      TabOrder = 0
+    end
+    object Memo1: TMemo
+      Left = 1
+      Height = 218
+      Top = 23
+      Width = 911
+      Align = alClient
+      Lines.Strings = (
+        'Memo1'
+      )
+      TabOrder = 1
+    end
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 12
+    Top = 276
+    Width = 913
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 255
+    Top = 288
+    Width = 913
+    Align = alClient
+    Color = clWindow
+    Columns = <>
+    TabOrder = 3
+  end
+  object Panel4: TPanel
+    Left = 0
+    Height = 50
+    Top = 543
+    Width = 913
+    Align = alBottom
+    TabOrder = 4
+  end
+  object MainMenu1: TMainMenu
+    Left = 48
+    Top = 80
+    object MenuItem1: TMenuItem
+      Caption = 'Arquivo'
+      object MenuItem2: TMenuItem
+        Caption = 'Abrir'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Editar'
+        OnClick = MenuItem4Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Sair'
+        OnClick = MenuItem3Click
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 40
+    Top = 144
+  end
+end

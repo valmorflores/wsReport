@@ -34,7 +34,6 @@ object Form1: TForm1
     DatabaseName = 'c:\dev\dados\base.gdb'
     KeepConnection = False
     Password = 'masterkey'
-    Transaction = SQLTransaction1
     UserName = 'SYSDBA'
     HostName = '10.1.6.22'
     CheckTransactionParams = False
@@ -44,7 +43,7 @@ object Form1: TForm1
   end
   object SQLTransaction1: TSQLTransaction
     Active = True
-    Database = IBConnection1
+    Database = ODBCConnection1
     Left = 288
     Top = 37
   end
@@ -53,39 +52,50 @@ object Form1: TForm1
     MaxIndexesCount = 4
     FieldDefs = <    
       item
-        Name = 'ID'
-        DataType = ftInteger
+        Name = 'CD_ID'
+        DataType = ftFloat
         Precision = -1
       end    
       item
-        Name = 'NAME'
+        Name = 'DS_TITULO'
         DataType = ftString
         Precision = -1
-        Size = 150
+        Size = 30
       end    
       item
-        Name = 'VALOR'
+        Name = 'DS_DESCRICAO'
         DataType = ftString
         Precision = -1
-        Size = 255
+        Size = 256
       end    
       item
-        Name = 'AUTOLOAD'
+        Name = 'DS_INDEX'
         DataType = ftString
         Precision = -1
-        Size = 1
+        Size = 100
       end    
       item
-        Name = 'VALUE'
-        DataType = ftMemo
+        Name = 'DS_ARQUIVO'
+        DataType = ftString
         Precision = -1
-        Size = 8
+        Size = 64
+      end    
+      item
+        Name = 'DS_FORMULARIO'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end    
+      item
+        Name = 'DS_SORT'
+        DataType = ftFloat
+        Precision = -1
       end>
     Active = True
-    Database = IBConnection1
+    Database = ODBCConnection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'SELECT * FROM TBLOPTIONS;'
+      'SELECT * FROM tiadmin_relatorios;'
     )
     Params = <>
     Left = 384
@@ -98,7 +108,20 @@ object Form1: TForm1
   end
   object frDBDataSet1: TfrDBDataSet
     DataSet = SQLQuery1
+    OnCheckEOF = frDBDataSet1CheckEOF
+    Left = 200
+    Top = 216
+  end
+  object ODBCConnection1: TODBCConnection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'producao'
+    KeepConnection = True
+    Password = 'prdca395mv'
+    Transaction = SQLTransaction1
+    UserName = 'dbamv'
+    HostName = 'localhost'
     Left = 192
-    Top = 112
+    Top = 120
   end
 end

@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Windows, Interfaces, Classes, SysUtils, CustApp, Unit1, lazreportpdfexport,lr_e_pdf,
-  pack_powerpdf, usql_editor
+  pack_powerpdf, usql_editor, udesign
   { you can add units after this };
 
 type
@@ -21,7 +21,8 @@ type
     constructor Create(TheOwner: TComponent); override;
     destructor Destroy; override;
     procedure WriteHelp; virtual;
-    procedure WritePdf; virtual;
+    procedure WritePdf( cFile: String; cFileOut: String ); virtual;
+    procedure runDesignForm; virtual;
   end;
 
 { TMyApplication }
@@ -29,6 +30,8 @@ type
 procedure TMyApplication.DoRun;
 var
   ErrorMsg: String;
+  cStr: String;
+  cOut: String;
 begin
   // quick check parameters
   {ErrorMsg:=CheckOptions('h', 'help');
@@ -48,8 +51,19 @@ begin
   // parse parameters
   if HasOption('r', 'report') then
   begin
-    Writeln('report');
-    WritePdf;
+     cStr:= ParamStr(2);
+     cOut:= ParamStr(3);
+     Writeln('report: ' + cStr);
+     WritePdf(cStr, cOut);
+     Terminate;
+     Exit;
+  end;
+
+  // parse parameters
+  if HasOption('d', 'design') then
+  begin
+    Writeln('desigh');
+    RunDesignForm;
     Terminate;
     Exit;
   end;
@@ -79,24 +93,36 @@ begin
   writeln('', ExeName, ' -d');
 end;
 
-procedure TMyApplication.WritePdf;
+procedure TMyApplication.WritePdf(cFile: String; cFileOut: String );
 var
-  cFile: String;
+  cFileReport: String;
+  cFileSQL: String;
 begin
-  cFile:= 'c:\dev\pascal\report_console_example\exemplo.lrf';
+  cFileReport:= cFile + '.lrf';
+  cFileSQL:= cFile + '.sql';
   with tForm1.Create( Self ) do
   begin
-    writeln('Formulario criado'   );
-    writeln('Carregando: ' + cFile   );
-    frReport1.LoadFromFile(cFile);
+    writeln('Report: ' + cFileReport );
+    writeln('SQL: ' + cFileSQL );
+    // SQL
+    SQLQuery1.Close;
+    SQLQuery1.SQL.Clear;
+    SQLQuery1.SQL.LoadFromFile( cFileSQL );
+    SQLQuery1.Open;
+    // Report
+    frReport1.LoadFromFile(cFileReport);
     if frReport1.PrepareReport then
     begin
-       frReport1.ExportTo(TfrTNPDFExportFilter,'C:\temp\report.pdf');
-       writeln('Relatório gerado'   );
+       frReport1.ExportTo(TfrTNPDFExportFilter,cFileOut);
+       writeln('PDF: ' + cFileOut   );
     end;
   end;
 end;
 
+procedure TMyApplication.runDesignForm;
+begin
+
+end;
 
 var
   Application: TMyApplication;
