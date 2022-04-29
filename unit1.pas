@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, IBConnection, SQLDB, odbcconn, DB, Forms, Controls,
-  Graphics, Dialogs, PReport, LR_Class, LR_DBSet, lr_e_pdf, LR_DSet;
+  Graphics, Dialogs, PReport, LR_Class, LR_DBSet, lr_e_pdf, LR_DSet, LR_Desgn;
 
 type
 
@@ -15,11 +15,13 @@ type
   TForm1 = class(TForm)
     DataSource1: TDataSource;
     frDBDataSet1: TfrDBDataSet;
+    frDesigner1: TfrDesigner;
     frReport1: TfrReport;
     frTNPDFExport1: TfrTNPDFExport;
     IBConnection1: TIBConnection;
     ODBCConnection1: TODBCConnection;
     PReport1: TPReport;
+    PReport2: TPReport;
     SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     procedure FormCreate(Sender: TObject);

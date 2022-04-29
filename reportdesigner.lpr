@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, umain
+  Forms, lazreportpdfexport, umain, Unit1, pack_powerpdf
   { you can add units after this };
 
 {$R *.res}
