@@ -1,0 +1,8 @@
+object FrmDesign: TFrmDesign
+  Left = 483
+  Height = 520
+  Top = 156
+  Width = 782
+  Caption = 'FrmDesign'
+  LCLVersion = '2.0.12.0'
+end

@@ -5,8 +5,8 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, IBConnection, SQLDB, DB, Forms, Controls, Graphics,
-  Dialogs, PReport, LR_Class, LR_DBSet, lr_e_pdf;
+  Classes, SysUtils, IBConnection, SQLDB, odbcconn, DB, Forms, Controls,
+  Graphics, Dialogs, PReport, LR_Class, LR_DBSet, lr_e_pdf, LR_DSet;
 
 type
 
@@ -18,10 +18,12 @@ type
     frReport1: TfrReport;
     frTNPDFExport1: TfrTNPDFExport;
     IBConnection1: TIBConnection;
+    ODBCConnection1: TODBCConnection;
     PReport1: TPReport;
     SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     procedure FormCreate(Sender: TObject);
+    procedure frDBDataSet1CheckEOF(Sender: TObject; var Eof: Boolean);
   private
 
   public
@@ -38,6 +40,11 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.frDBDataSet1CheckEOF(Sender: TObject; var Eof: Boolean);
 begin
 
 end;
