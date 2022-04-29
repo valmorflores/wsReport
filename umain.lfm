@@ -17,23 +17,13 @@ object frmMain: TfrmMain
     ClientHeight = 34
     ClientWidth = 913
     TabOrder = 0
-    object Button1: TButton
+    object edFile: TEdit
       Left = 1
       Height = 32
       Top = 1
-      Width = 95
-      Align = alLeft
-      Caption = 'Executar'
-      OnClick = Button1Click
-      TabOrder = 0
-    end
-    object edFile: TEdit
-      Left = 96
-      Height = 32
-      Top = 1
-      Width = 816
+      Width = 911
       Align = alClient
-      TabOrder = 1
+      TabOrder = 0
     end
   end
   object Panel3: TPanel
@@ -84,6 +74,7 @@ object frmMain: TfrmMain
     Align = alClient
     Color = clWindow
     Columns = <>
+    DataSource = Form1.DataSource1
     TabOrder = 3
   end
   object Panel4: TPanel
@@ -92,7 +83,40 @@ object frmMain: TfrmMain
     Top = 543
     Width = 913
     Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 913
     TabOrder = 4
+    object Button1: TButton
+      Left = 6
+      Height = 38
+      Top = 6
+      Width = 95
+      Align = alLeft
+      BorderSpacing.Around = 5
+      Caption = 'Executar'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 106
+      Height = 38
+      Top = 6
+      Width = 95
+      Align = alLeft
+      BorderSpacing.Around = 5
+      Caption = 'Desenhar'
+      OnClick = Button2Click
+      TabOrder = 1
+    end
+    object edFileLrf: TEdit
+      Left = 206
+      Height = 48
+      Top = 1
+      Width = 706
+      Align = alClient
+      TabOrder = 2
+      Visible = False
+    end
   end
   object MainMenu1: TMainMenu
     Left = 48
@@ -107,6 +131,10 @@ object frmMain: TfrmMain
         Caption = 'Editar'
         OnClick = MenuItem4Click
       end
+      object MenuItem5: TMenuItem
+        Caption = 'Salvar como...'
+        OnClick = MenuItem5Click
+      end
       object N1: TMenuItem
         Caption = '-'
       end
@@ -117,7 +145,11 @@ object frmMain: TfrmMain
     end
   end
   object OpenDialog1: TOpenDialog
-    Left = 40
+    Left = 48
     Top = 144
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 152
+    Top = 80
   end
 end
