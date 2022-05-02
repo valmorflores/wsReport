@@ -5,21 +5,28 @@ ITPRE_MED.cd_tip_presc,ITPRE_MED.CD_TIP_ESQ
           , PACIENTE.NM_PACIENTE
           , MOV_CARDAPIO.cd_tipo_refeicao
           , MOV_CARDAPIO.sn_prescricao_suspensa
-          , tipo_refeicao.tipo_refeicao
+          , PRE_MED.cd_pre_med
+          , PRE_MED.DH_CRIACAO
+          
 
 FROM ATENDIME
 LEFT OUTER JOIN PRE_MED ON PRE_MED.cd_atendimento = ATENDIME.cd_atendimento
 LEFT OUTER JOIN ITPRE_MED ON ITPRE_MED.cd_pre_med  = PRE_MED.cd_pre_med
 LEFT OUTER JOIN TIP_PRESC ON ITPRE_MED.cd_tip_presc  =  TIP_PRESC.cd_tip_presc
 LEFT OUTER JOIN UNI_PRESC ON ITPRE_MED.cd_uni_presc   =  UNI_PRESC.cd_uni_presc
-LEFT OUTER JOIN MOV_CARDAPIO ON PRE_MED.cd_atendimento = MOV_CARDAPIO.cd_atendimento AND  mov_cardapio.tp_cardapio = 'P'
+LEFT OUTER JOIN MOV_CARDAPIO ON ITPRE_MED.cd_itpre_med = MOV_CARDAPIO.cd_itpre_med 
 LEFT OUTER JOIN PACIENTE ON ATENDIME.CD_PACIENTE = PACIENTE.CD_PACIENTE
-LEFT OUTER JOIN tipo_refeicao ON tipo_refeicao.cd_tipo_refeicao = MOV_CARDAPIO.cd_tipo_refeicao 
      
 WHERE
   ITPRE_MED.cd_tip_esq IN ('DIT', 'DEL', 'DIE')
-  AND  Trunc ( (  SYSDATE -  dt_atendimento )  * 24  , 2) BETWEEN 0 AND 48
-                                                                         
+  AND PRE_MED.cd_atendimento = 4751012
+
+
+ORDER BY
+
+  PRE_MED.DH_CRIACAO
+
+
 /*
 SELECT DISTINCT mov_cardapio.obs_nutricao obs_almoco
            FROM dbamv.mov_cardapio mov_cardapio, dbamv.tipo_dieta tipo_dieta

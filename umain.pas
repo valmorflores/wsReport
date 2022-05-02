@@ -15,6 +15,7 @@ type
   TfrmMain = class(TForm)
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
     DBGrid1: TDBGrid;
     edFile: TEdit;
     edFileLrf: TEdit;
@@ -35,6 +36,7 @@ type
     Splitter1: TSplitter;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
@@ -141,6 +143,18 @@ begin
   begin
      // execute
   end;
+end;
+
+procedure TfrmMain.Button3Click(Sender: TObject);
+begin
+  with FormEditor do
+  begin
+     Self.DBGrid1.dataSource:= DataSource1;
+     frReport1.loadFromFile(edFileLrf.text);
+     frReport1.PrepareReport;
+     frReport1.ShowPreparedReport;
+  end;
+
 end;
 
 end.
