@@ -98,7 +98,7 @@ object frmMain: TfrmMain
       TabOrder = 0
     end
     object Button2: TButton
-      Left = 106
+      Left = 206
       Height = 38
       Top = 6
       Width = 95
@@ -109,13 +109,24 @@ object frmMain: TfrmMain
       TabOrder = 1
     end
     object edFileLrf: TEdit
-      Left = 206
+      Left = 306
       Height = 48
       Top = 1
-      Width = 706
+      Width = 606
       Align = alClient
       TabOrder = 2
       Visible = False
+    end
+    object Button3: TButton
+      Left = 106
+      Height = 38
+      Top = 6
+      Width = 95
+      Align = alLeft
+      BorderSpacing.Around = 5
+      Caption = 'Visualizar'
+      OnClick = Button3Click
+      TabOrder = 3
     end
   end
   object MainMenu1: TMainMenu
