@@ -7,7 +7,7 @@
     <KeyWords Value=""/>
     <Comments Value=""/>
     <ReportCreateDate Value="1899-12-30 00:00:00"/>
-    <ReportLastChange Value="2022-05-02 17:38:30"/>
+    <ReportLastChange Value="2022-05-02 17:55:14"/>
     <ReportVersionBuild Value=""/>
     <ReportVersionMajor Value=""/>
     <ReportVersionMinor Value=""/>
@@ -49,7 +49,7 @@
             <Left Value="0"/>
             <Top Value="508"/>
             <Width Value="1064"/>
-            <Height Value="28"/>
+            <Height Value="48"/>
           </Size>
           <Flags Value="57"/>
           <Data>
@@ -107,7 +107,7 @@
             <Width Value="1064"/>
             <Height Value="56"/>
           </Size>
-          <Flags Value="48"/>
+          <Flags Value="560"/>
           <Data>
             <Script Value=""/>
             <GapX Value="0"/>
@@ -135,7 +135,7 @@
             <Width Value="1064"/>
             <Height Value="56"/>
           </Size>
-          <Flags Value="48"/>
+          <Flags Value="50"/>
           <Data>
             <Script Value=""/>
             <GapX Value="0"/>
@@ -159,7 +159,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="0"/>
-            <Top Value="576"/>
+            <Top Value="616"/>
             <Width Value="1064"/>
             <Height Value="12"/>
           </Size>
@@ -859,7 +859,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="413"/>
-            <Top Value="515"/>
+            <Top Value="535"/>
             <Width Value="616"/>
             <Height Value="18"/>
           </Size>
@@ -915,7 +915,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="167"/>
-            <Top Value="515"/>
+            <Top Value="535"/>
             <Width Value="76"/>
             <Height Value="18"/>
           </Size>
@@ -1195,7 +1195,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="248"/>
-            <Top Value="515"/>
+            <Top Value="535"/>
             <Width Value="160"/>
             <Height Value="18"/>
           </Size>
@@ -1307,7 +1307,7 @@
           <StreamMode Value="0"/>
           <Size>
             <Left Value="44"/>
-            <Top Value="580"/>
+            <Top Value="620"/>
             <Width Value="984"/>
             <Height Value="2"/>
           </Size>
@@ -2083,7 +2083,119 @@
           <Justify Value="False"/>
           <Cursor Value="0"/>
         </Object40>
-        <ObjectCount Value="40"/>
+        <Object41>
+          <Name Value="Memo34"/>
+          <ClassName Value="TfrMemoView"/>
+          <Visible Value="True"/>
+          <Typ Value="gtMemo"/>
+          <StreamMode Value="0"/>
+          <Size>
+            <Left Value="414"/>
+            <Top Value="513"/>
+            <Width Value="612"/>
+            <Height Value="18"/>
+          </Size>
+          <Flags Value="3"/>
+          <FillColor Value="clNone"/>
+          <Frames>
+            <FrameColor Value="clBlack"/>
+            <FrameStyle Value="frsSolid"/>
+            <FrameWidth Value="1"/>
+            <FrameBorders Value="frbTop"/>
+            <Restrictions Value=""/>
+          </Frames>
+          <Data>
+            <Format Value="556"/>
+            <FormatStr Value=""/>
+            <Memo Value="[SQLQuery1.&quot;DS_OBSERVACAO&quot;]&#xD;&#xA;"/>
+            <Script Value=""/>
+            <GapX Value="0"/>
+            <GapY Value="0"/>
+            <OnClick Value=""/>
+            <OnMouseEnter Value=""/>
+            <OnMouseLeave Value=""/>
+            <DetailReport Value=""/>
+            <ParagraphGap Value="0"/>
+            <LineSpacing Value="2"/>
+          </Data>
+          <Tag Value=""/>
+          <FURLInfo Value=""/>
+          <Font>
+            <Name Value="Arial"/>
+            <Size Value="10"/>
+            <Color Value="clBlack"/>
+            <Charset Value="0"/>
+            <Style Value=""/>
+          </Font>
+          <Highlight>
+            <FontStyle Value="2"/>
+            <FontColor Value="clBlack"/>
+            <FillColor Value="clWhite"/>
+            <HighlightStr Value=""/>
+          </Highlight>
+          <Alignment Value="taLeftJustify"/>
+          <Layout Value="tlTop"/>
+          <Angle Value="0"/>
+          <Justify Value="False"/>
+          <Cursor Value="0"/>
+        </Object41>
+        <Object42>
+          <Name Value="Memo35"/>
+          <ClassName Value="TfrMemoView"/>
+          <Visible Value="True"/>
+          <Typ Value="gtMemo"/>
+          <StreamMode Value="0"/>
+          <Size>
+            <Left Value="162"/>
+            <Top Value="513"/>
+            <Width Value="248"/>
+            <Height Value="18"/>
+          </Size>
+          <Flags Value="3"/>
+          <FillColor Value="clNone"/>
+          <Frames>
+            <FrameColor Value="clBlack"/>
+            <FrameStyle Value="frsSolid"/>
+            <FrameWidth Value="1"/>
+            <FrameBorders Value="frbTop"/>
+            <Restrictions Value=""/>
+          </Frames>
+          <Data>
+            <Format Value="556"/>
+            <FormatStr Value=""/>
+            <Memo Value=""/>
+            <Script Value=""/>
+            <GapX Value="0"/>
+            <GapY Value="0"/>
+            <OnClick Value=""/>
+            <OnMouseEnter Value=""/>
+            <OnMouseLeave Value=""/>
+            <DetailReport Value=""/>
+            <ParagraphGap Value="0"/>
+            <LineSpacing Value="2"/>
+          </Data>
+          <Tag Value=""/>
+          <FURLInfo Value=""/>
+          <Font>
+            <Name Value="Arial"/>
+            <Size Value="10"/>
+            <Color Value="clBlack"/>
+            <Charset Value="0"/>
+            <Style Value=""/>
+          </Font>
+          <Highlight>
+            <FontStyle Value="2"/>
+            <FontColor Value="clBlack"/>
+            <FillColor Value="clWhite"/>
+            <HighlightStr Value=""/>
+          </Highlight>
+          <Alignment Value="taLeftJustify"/>
+          <Layout Value="tlTop"/>
+          <Angle Value="0"/>
+          <Justify Value="False"/>
+          <Cursor Value="0"/>
+        </Object42>
+        <ObjectCount Value="42"/>
       </Page1>
       <FVal>
         <Count Value="0"/>
