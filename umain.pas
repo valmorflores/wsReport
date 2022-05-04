@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Menus,
-  StdCtrls, DBGrids, unit1;
+  StdCtrls, DBGrids, ComCtrls, unit1;
 
 type
 
@@ -34,9 +34,11 @@ type
     Panel4: TPanel;
     SaveDialog1: TSaveDialog;
     Splitter1: TSplitter;
+    StatusBar1: TStatusBar;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
@@ -54,6 +56,9 @@ var
 implementation
 
 {$R *.lfm}
+
+
+
 
 { TfrmMain }
 
@@ -116,6 +121,8 @@ end;
 
 procedure TfrmMain.Button1Click(Sender: TObject);
 begin
+  frmMain.StatusBar1.Panels[0].Text:= 'Executando a consulta';
+  Application.ProcessMessages;
   if ( FormEditor = nil ) then
      FormEditor:= tForm1.create( Application );
   with FormEditor do
@@ -147,6 +154,8 @@ end;
 
 procedure TfrmMain.Button3Click(Sender: TObject);
 begin
+  frmMain.StatusBar1.Panels[0].Text:= 'Visualizar';
+  Application.ProcessMessages;
   with FormEditor do
   begin
      Self.DBGrid1.dataSource:= DataSource1;
@@ -154,6 +163,11 @@ begin
      frReport1.PrepareReport;
      frReport1.ShowPreparedReport;
   end;
+
+end;
+
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
 
 end;
 

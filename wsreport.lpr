@@ -32,6 +32,7 @@ var
   ErrorMsg: String;
   cStr: String;
   cOut: String;
+  cParameters: String;
 begin
   // quick check parameters
   {ErrorMsg:=CheckOptions('h', 'help');
@@ -40,6 +41,17 @@ begin
     Terminate;
     Exit;
   end;}
+
+
+
+
+  // parse parameters
+  cParameters:= ParamStr(4);
+  Writeln('Parameters: ' + cParameters);
+     //WritePdf(cStr, cParameters);
+     //Terminate;
+     //Exit;
+
 
   // parse parameters
   if HasOption('h', 'help') then begin
@@ -58,6 +70,8 @@ begin
      Terminate;
      Exit;
   end;
+
+
 
   // parse parameters
   if HasOption('d', 'design') then
