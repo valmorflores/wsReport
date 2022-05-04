@@ -39,10 +39,55 @@ implementation
 
 {$R *.lfm}
 
+uses IniFiles, umain;
+const
+  IniFile = 'config.ini';
+
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+    Sett : TIniFile;
+    cDatabase: String;
+    cDriver: String;
+    slDatabaseList: TStringList;
 begin
+    Sett := TIniFile.Create(IniFile);
+    cDatabase:= Sett.ReadString('Default', 'database', '');
+    cDriver:= Sett.ReadString(cDatabase,'driver','firebird');
+    IBConnection1.Connected:= false;
+    ODBCConnection1.Connected:= false;
+    ODBCConnection1.Transaction:= nil;
+    if (cDriver='firebird') then
+    begin
+        if frmMain <> nil then
+           if frmMain.IsVisible then
+              frmMain.StatusBar1.Panels[2].Text:= 'firebird:' + Sett.ReadString(cDatabase,'dbname','');
+        IBConnection1.hostname:= Sett.ReadString(cDatabase,'dbhost','');
+        IBConnection1.DatabaseName:= Sett.ReadString(cDatabase,'dbname','');
+        IBConnection1.UserName:= Sett.ReadString(cDatabase,'dbuser','');
+        IBConnection1.Password:= Sett.ReadString(cDatabase,'dbpass','');
+        IBConnection1.Port:= Sett.ReadInteger(cDatabase,'dbport',3050);
+        IBConnection1.Transaction:= SQLTransaction1;
+        SQLQuery1.DataBase:= IBConnection1;
+        IBConnection1.Connected:= true;
+    end
+    else if (cDriver='oracle') then
+    begin
+        if frmMain <> nil then
+           if frmMain.IsVisible then
+              frmMain.StatusBar1.Panels[2].Text:= 'oracle:' + Sett.ReadString(cDatabase,'dbname','');
+        ODBCConnection1.hostname:= Sett.ReadString(cDatabase,'dbhost','');
+        ODBCConnection1.DatabaseName:= Sett.ReadString(cDatabase,'dbname','');
+        ODBCConnection1.UserName:= Sett.ReadString(cDatabase,'dbuser','');
+        ODBCConnection1.Password:= Sett.ReadString(cDatabase,'dbpass','');
+        ODBCConnection1.Transaction:= SQLTransaction1;
+        ODBCConnection1.Connected:= true;
+        SQLQuery1.DataBase:= ODBCConnection1;
+    end;
+    Application.processMessages;
+    Sett.Free;
+    //slDatabaseList: TStringList;
 
 end;
 
