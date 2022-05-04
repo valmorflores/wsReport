@@ -51,8 +51,11 @@ var
     cDatabase: String;
     cDriver: String;
     slDatabaseList: TStringList;
+    cPath: String;
 begin
-    Sett := TIniFile.Create(IniFile);
+    cPath:= ExtractFilePath( Application.ExeName );
+    writeln('Configuration file: ' + cPath + IniFile);
+    Sett := TIniFile.Create(cPath + IniFile);
     cDatabase:= Sett.ReadString('Default', 'database', '');
     cDriver:= Sett.ReadString(cDatabase,'driver','firebird');
     IBConnection1.Connected:= false;
