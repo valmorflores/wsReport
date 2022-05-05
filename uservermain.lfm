@@ -1,0 +1,15 @@
+object FPWebModule1: TFPWebModule1
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'online'
+      Default = False
+      OnRequest = onlineRequest
+      Template.AllowTagParams = False
+    end>
+  CreateSession = True
+  Height = 290
+  HorizontalOffset = 365
+  VerticalOffset = 132
+  Width = 394
+end
