@@ -12,11 +12,36 @@ Type
         procedure HandleRequest(
             Var ARequest: TFPHTTPConnectionRequest;
             Var AResponse : TFPHTTPConnectionResponse); override;
+        procedure loadConfig();
     end;
+
+
 
 Var
     Serv : TTestHTTPServer;
+    ServCommand: String;
+    ServReportsPath: String;
+    ServPdfFilePath: String;
+    ServPdfUrl: String;
+    ServPdfDefaultPrefix: String;
+    ServPort: integer;
+    ServTimeOutSeconds: integer;
+    ServPath: String;
 
+procedure TTestHTTPServer.loadConfig();
+var
+    iniFile: String;
+begin
+    iniFile:= 'config.ini';
+    ServCommand:= 'c:\xampp\htdocs\app\reports\wsreport\wsreport.exe';
+    ServReportsPath:= 'C:\xampp\htdocs\app\reports\wsreport\reports\';
+    ServPdfFilePath:= 'c:\xampp\htdocs\app\reports\download\';
+    ServPdfUrl:= 'http://localhost/app/reports/download/';
+    ServPdfDefaultPrefix:= 'aRelV02022';
+    ServTimeOutSeconds:=360;
+    ServPort:=88;
+    ServPath:= ExtractFilePath( Application.ExeName );
+end;
 
 procedure TTestHTTPServer.HandleRequest(
    var ARequest: TFPHTTPConnectionRequest;
@@ -34,7 +59,7 @@ procedure TTestHTTPServer.HandleRequest(
       cPdfRandomName: String;
       nRand: Integer;
 begin
-    cPathReport:= 'C:\xampp\htdocs\app\reports\wsreport\reports\';
+    cPathReport:= ServReportsPath;
     writeln('Processando um requisito...');
     writeln('Information: ' + ARequest.QueryString);
     if pos('r=', '.' + ARequest.QueryString )>0 then
@@ -48,12 +73,12 @@ begin
       cReport:= 'rel_mapa_dieta_por_atendimento_validade';
       cParams:= 'atendimento=4784279';
     end;
-    cCommand:= 'c:\xampp\htdocs\app\reports\wsreport\wsreport.exe';
+    cCommand:= ServCommand;
     nRand:=  RandomRange(100000,199999);
-    cPdfRandomName:= 'aRelV02022' + intToStr(nRand)  + '.pdf';
-    cPdf:= 'c:\xampp\htdocs\app\reports\download\' + cPdfRandomName;
-    cHostReport:= 'srvm24:89';
-    cReportPdfUrl:= 'http://' + cHostReport + '/app/reports/download/' + cPdfRandomName;
+    cPdfRandomName:= ServPdfDefaultPrefix + intToStr(nRand)  + '.pdf';
+    cPdf:= ServPdfFilePath + cPdfRandomName;
+
+    cReportPdfUrl:= ServPdfUrl + cPdfRandomName;
 
     // Run wsReport with parameters
     RunCommand(cCommand,['-r',cReport,cPdf,cParams], cOutInfo);
@@ -70,11 +95,17 @@ begin
 end;
 
 begin
+;
     Serv:=TTestHTTPServer.Create(Nil);
+    Serv.loadConfig();
+    writeln('wsReportServer');
+    writeln('Report generator listen on port ' + IntToStr( ServPort ) );
+    writeln('Server path = ' + ServPath );
+    writeln('Pdf generator = ' + ServCommand);
     try
         Serv.Threaded:=True;
-        Serv.Port:=88;
-        Serv.AcceptIdleTimeout:=1000 * 240;
+        Serv.Port:=ServPort;
+        Serv.AcceptIdleTimeout:=1000 * ServTimeOutSeconds;
         Serv.Active:=True;
     finally
         Serv.Free;
