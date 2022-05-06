@@ -4,7 +4,7 @@ program wsreportserver;
 
 
 uses
-    Classes, fphttpserver, fphttpapp, Process, math, sysutils;
+    Classes, fphttpserver, fphttpapp, Process, math, sysutils, IniFiles;
 
 Type
     TTestHTTPServer = Class(TFPHTTPServer)
@@ -27,12 +27,14 @@ Var
     ServPort: integer;
     ServTimeOutSeconds: integer;
     ServPath: String;
+    ConfigFile: String;
+
 
 procedure TTestHTTPServer.loadConfig();
 var
-    iniFile: String;
+    Sett : TIniFile;
 begin
-    iniFile:= 'config.ini';
+
     ServCommand:= 'c:\xampp\htdocs\app\reports\wsreport\wsreport.exe';
     ServReportsPath:= 'C:\xampp\htdocs\app\reports\wsreport\reports\';
     ServPdfFilePath:= 'c:\xampp\htdocs\app\reports\download\';
@@ -41,6 +43,28 @@ begin
     ServTimeOutSeconds:=360;
     ServPort:=88;
     ServPath:= ExtractFilePath( Application.ExeName );
+    if FileExists(ServPath + 'config.ini' ) then
+    begin
+        ConfigFile:= ServPath + 'config.ini';
+    end
+    else if ( pos( '\lib',ServPath)>0 ) then
+    begin
+        ConfigFile:= ServPath + '..\..\config.ini';
+    end
+    else if ( pos( '/lib',ServPath)>0 ) then
+    begin
+        ConfigFile:= ServPath + '../../config.ini';
+    end;
+
+    // Config from file
+    Sett := TIniFile.Create(ConfigFile);
+    ServCommand:= Sett.ReadString('Server', 'pdfGenerator', 'wsReport.exe');
+    ServPdfFilePath:= Sett.ReadString('Server', 'pdfFilePath', '');
+    ServPdfUrl:= Sett.ReadString('Server', 'pdfUrl', '' );
+    ServPdfDefaultPrefix:= Sett.ReadString('Server','pdfDefaultPrefix', ServPdfDefaultPrefix);
+    ServReportsPath:= Sett.ReadString('Server','reportsPath','');
+    ServTimeOutSeconds:= Sett.ReadInteger('Server','timeOutSeconds',60);
+    ServPort:= Sett.ReadInteger('Server','port',60);
 end;
 
 procedure TTestHTTPServer.HandleRequest(
@@ -59,6 +83,7 @@ procedure TTestHTTPServer.HandleRequest(
       cPdfRandomName: String;
       nRand: Integer;
 begin
+
     cPathReport:= ServReportsPath;
     writeln('Processando um requisito...');
     writeln('Information: ' + ARequest.QueryString);
@@ -101,7 +126,9 @@ begin
     writeln('wsReportServer');
     writeln('Report generator listen on port ' + IntToStr( ServPort ) );
     writeln('Server path = ' + ServPath );
+    writeln('Config file = ' + ConfigFile );
     writeln('Pdf generator = ' + ServCommand);
+
     try
         Serv.Threaded:=True;
         Serv.Port:=ServPort;
