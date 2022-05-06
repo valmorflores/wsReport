@@ -2,30 +2,26 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="12"/>
+    <Version Value="11"/>
     <BuildModes Active="Default"/>
     <Units Count="4">
       <Unit0>
         <Filename Value="wsreportserver.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="31"/>
-        <CursorPos X="79" Y="40"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="43"/>
+        <CursorPos X="39" Y="63"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="uservermain.pas"/>
-        <IsPartOfProject Value="True"/>
         <ComponentName Value="FPWebModule1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <TopLine Value="17"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="62" Y="34"/>
         <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="D:\Users\valmorpf\AppData\Local\Temp\httpproject1.lpr"/>
@@ -44,124 +40,124 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="82" Column="5" TopLine="73"/>
+        <Caret Line="104" Column="10" TopLine="84"/>
       </Position1>
       <Position2>
         <Filename Value="wsreportserver.lpr"/>
+        <Caret Line="112" TopLine="95"/>
       </Position2>
       <Position3>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="86" Column="13" TopLine="77"/>
+        <Caret Line="15" Column="27" TopLine="3"/>
       </Position3>
       <Position4>
         <Filename Value="wsreportserver.lpr"/>
+        <Caret Line="35" Column="14" TopLine="32"/>
       </Position4>
       <Position5>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="22" Column="16" TopLine="7"/>
       </Position5>
       <Position6>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="27" Column="15" TopLine="12"/>
+        <Caret Line="55" Column="24" TopLine="32"/>
       </Position6>
       <Position7>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="60" Column="27" TopLine="46"/>
+        <Caret Line="42" Column="12" TopLine="18"/>
       </Position7>
       <Position8>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="86" Column="24" TopLine="71"/>
+        <Caret Line="43" TopLine="38"/>
       </Position8>
       <Position9>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="22" Column="16" TopLine="13"/>
+        <Caret Line="115" Column="20" TopLine="106"/>
       </Position9>
       <Position10>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="27" Column="15" TopLine="13"/>
       </Position10>
       <Position11>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="60" Column="27" TopLine="46"/>
+        <Caret Line="15" Column="29"/>
       </Position11>
       <Position12>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="86" Column="24" TopLine="71"/>
+        <Caret Line="124" TopLine="111"/>
       </Position12>
       <Position13>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="22" Column="16" TopLine="13"/>
       </Position13>
       <Position14>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="38" Column="4" TopLine="24"/>
+        <Caret Line="63" Column="64" TopLine="45"/>
       </Position14>
       <Position15>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="31" Column="28" TopLine="26"/>
+        <Caret Line="7" Column="72"/>
       </Position15>
       <Position16>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="46" Column="18" TopLine="31"/>
+        <Caret Line="36" Column="11" TopLine="24"/>
       </Position16>
       <Position17>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="68" Column="5" TopLine="54"/>
+        <Caret Line="60" Column="60" TopLine="48"/>
       </Position17>
       <Position18>
         <Filename Value="wsreportserver.lpr"/>
+        <Caret Line="61" Column="84" TopLine="49"/>
       </Position18>
       <Position19>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="32" Column="24" TopLine="22"/>
+        <Caret Line="63" Column="52" TopLine="49"/>
       </Position19>
       <Position20>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="67" Column="42" TopLine="59"/>
+        <Caret Line="53" Column="19" TopLine="43"/>
       </Position20>
       <Position21>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="28" TopLine="22"/>
       </Position21>
       <Position22>
         <Filename Value="wsreportserver.lpr"/>
+        <Caret Line="30" Column="15" TopLine="10"/>
       </Position22>
       <Position23>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="51" Column="5" TopLine="35"/>
+        <Caret Line="34" Column="4" TopLine="15"/>
       </Position23>
       <Position24>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="99" Column="28" TopLine="88"/>
+        <Caret Line="48" Column="19" TopLine="28"/>
       </Position24>
       <Position25>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="38" Column="16" TopLine="28"/>
+        <Caret Line="52" Column="19" TopLine="32"/>
       </Position25>
       <Position26>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="28" Column="18" TopLine="27"/>
+        <Caret Line="56" Column="39" TopLine="37"/>
       </Position26>
       <Position27>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="40" Column="54" TopLine="24"/>
+        <Caret Line="125" Column="42" TopLine="105"/>
       </Position27>
       <Position28>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="29" Column="22" TopLine="27"/>
+        <Caret Line="30" Column="15" TopLine="18"/>
       </Position28>
       <Position29>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="39" Column="16" TopLine="37"/>
+        <Caret Line="48" Column="19" TopLine="28"/>
       </Position29>
       <Position30>
         <Filename Value="wsreportserver.lpr"/>
-        <Caret Line="99" TopLine="93"/>
+        <Caret Line="52" Column="19" TopLine="32"/>
       </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes ActiveMode=""/>
+      <Modes Count="0" ActiveMode=""/>
     </RunParams>
   </ProjectSession>
 </CONFIG>
