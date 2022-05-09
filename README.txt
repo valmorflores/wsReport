@@ -15,6 +15,10 @@ http://srvm24:88/?r=rel_mapa_dieta_por_atendimento_validade/atendimento=4779726
 http://srvm24:89/app/reports/urep/public/login
 Relatorio: http://srvm24:89/app/reports/urep/public/report/r/rel_mapa_dieta_por_atendimento_validade
 
+4) Exemplos diversos / links:
+srvm24:89/app/reports/urep/public/report/rviewatend/rel_atendimento_iniciado_hoje/0
+
+
 Como instalar o servidor?
 
 Você tem três microserviços para o funcionamento da ferramenta:
