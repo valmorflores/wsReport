@@ -99,8 +99,7 @@ object Form1: TForm1
     SQL.Strings = (
       'SELECT * FROM tiadmin_relatorios;'
     )
-    Params = <>
-    Macros = <>
+    Params = <>    
     Left = 384
     Top = 37
   end

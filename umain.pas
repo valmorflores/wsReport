@@ -133,6 +133,7 @@ begin
      SQLQuery1.Open;
      Self.DBGrid1.dataSource:= DataSource1;
   end;
+  frmMain.StatusBar1.Panels[0].Text:= 'Ok';
 end;
 
 procedure TfrmMain.Button2Click(Sender: TObject);
