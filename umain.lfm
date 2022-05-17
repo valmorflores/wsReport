@@ -55,6 +55,7 @@ object frmMain: TfrmMain
       Lines.Strings = (
         'Memo1'
       )
+      ScrollBars = ssAutoBoth
       TabOrder = 1
     end
   end
