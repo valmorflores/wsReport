@@ -142,24 +142,13 @@ object Form1: TForm1
   object OracleConnection1: TOracleConnection
     Connected = False
     LoginPrompt = True
-    DatabaseName = 'producao.cardiologia.org'
+    DatabaseName = 'server.org'
     KeepConnection = False
     Params.Strings = (
-      '(DESCRIPTION ='
-      '(ADDRESS ='
-      '  (PROTOCOL = TCP)'
-      '  (HOST = 10.1.6.60)'
-      '  (PORT = 1521)'
-      ')'
-      '(CONNECT_DATA ='
-      '  (SERVER = DEDICATED)'
-      '  (SERVICE_NAME = producao.cardiologia.org)'
-      ')'
-      ')'
     )
-    Password = 'prdca395mv'
-    UserName = 'DBAMV'
-    HostName = '10.1.6.60'
+    Password = 'pass'
+    UserName = 'USER'
+    HostName = '10.1.1.123'
     Left = 336
     Top = 144
   end
