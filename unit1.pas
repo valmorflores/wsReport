@@ -5,8 +5,9 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, IBConnection, SQLDB, odbcconn, DB, Forms, Controls,
-  Graphics, Dialogs, PReport, LR_Class, LR_DBSet, lr_e_pdf, LR_DSet, LR_Desgn;
+  Classes, SysUtils, IBConnection, SQLDB, oracleconnection, odbcconn, DB, Forms,
+  Controls, Graphics, Dialogs, PReport, LR_Class, LR_DBSet, lr_e_pdf, LR_DSet,
+  LR_Desgn;
 
 type
 
@@ -20,6 +21,7 @@ type
     frTNPDFExport1: TfrTNPDFExport;
     IBConnection1: TIBConnection;
     ODBCConnection1: TODBCConnection;
+    OracleConnection1: TOracleConnection;
     PReport1: TPReport;
     PReport2: TPReport;
     SQLQuery1: TSQLQuery;
@@ -52,6 +54,7 @@ var
     cDriver: String;
     slDatabaseList: TStringList;
     cPath: String;
+    cParams: String;
 
 begin
     cPath:= ExtractFilePath( Application.ExeName );
@@ -75,6 +78,22 @@ begin
         IBConnection1.Transaction:= SQLTransaction1;
         SQLQuery1.DataBase:= IBConnection1;
         IBConnection1.Connected:= true;
+    end
+    else if (cDriver='oracleNative') then
+    begin
+        if frmMain <> nil then
+           if frmMain.IsVisible then
+              frmMain.StatusBar1.Panels[2].Text:= 'oracle-native:' + Sett.ReadString(cDatabase,'dbname','');
+        OracleConnection1.HostName:= Sett.ReadString(cDatabase,'dbhost','');
+        OracleConnection1.DatabaseName:= Sett.ReadString(cDatabase,'dbname','');
+        OracleConnection1.UserName:= Sett.ReadString(cDatabase,'dbuser','');
+        OracleConnection1.Password:= Sett.ReadString(cDatabase,'dbpass','');
+        OracleConnection1.Transaction:= SQLTransaction1;
+        cParams:= Sett.ReadString(cDatabase,'params','');
+        OracleConnection1.Params.add(cParams);
+        SQLQuery1.DataBase:= OracleConnection1;
+        OracleConnection1.Connected:= true;
+        Application.processMessages;
     end
     else if (cDriver='oracle') then
     begin
