@@ -118,11 +118,11 @@ object Form1: TForm1
   object ODBCConnection1: TODBCConnection
     Connected = False
     LoginPrompt = False
-    DatabaseName = 'producao'
+    DatabaseName = 'database'
     KeepConnection = True
-    Password = 'prdca395mv'
+    Password = '*****'
     Transaction = SQLTransaction1
-    UserName = 'dbamv'
+    UserName = 'USER'
     HostName = 'localhost'
     Left = 192
     Top = 120
