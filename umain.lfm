@@ -8,7 +8,8 @@ object frmMain: TfrmMain
   ClientWidth = 913
   Menu = MainMenu1
   OnCreate = FormCreate
-  LCLVersion = '2.0.12.0'
+  Position = poScreenCenter
+  LCLVersion = '2.2.2.0'
   object Panel1: TPanel
     Left = 0
     Height = 34
