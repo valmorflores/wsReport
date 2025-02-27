@@ -5,9 +5,9 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, IBConnection, SQLDB, oracleconnection, odbcconn, DB, Forms,
-  Controls, Graphics, Dialogs, PReport, LR_Class, LR_DBSet, lr_e_pdf, LR_DSet,
-  LR_Desgn;
+  Classes, SysUtils, IBConnection, SQLDB, SQLDBLib, PQConnection,
+  oracleconnection, odbcconn, DB, Forms, Controls, Graphics, Dialogs, PReport,
+  LR_Class, LR_DBSet, lr_e_pdf, LR_DSet, LR_Desgn;
 
 type
 
@@ -22,8 +22,10 @@ type
     IBConnection1: TIBConnection;
     ODBCConnection1: TODBCConnection;
     OracleConnection1: TOracleConnection;
+    PQConnection1: TPQConnection;
     PReport1: TPReport;
     PReport2: TPReport;
+    SQLDBLibraryLoader1: TSQLDBLibraryLoader;
     SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     procedure FormCreate(Sender: TObject);
@@ -78,6 +80,21 @@ begin
         IBConnection1.Transaction:= SQLTransaction1;
         SQLQuery1.DataBase:= IBConnection1;
         IBConnection1.Connected:= true;
+    end
+    else if (cDriver='postgre') then
+    begin
+        if frmMain <> nil then
+           if frmMain.IsVisible then
+              frmMain.StatusBar1.Panels[2].Text:= 'postgre:' + Sett.ReadString(cDatabase,'dbname','');
+        SQLDBLibraryLoader1.LibraryName:= 'd:\PostgreSQL\15\bin\libpq.dll';
+        SQLDBLibraryLoader1.Enabled:= true;
+        PQConnection1.hostname:= Sett.ReadString(cDatabase,'dbhost','');
+        PQConnection1.DatabaseName:= Sett.ReadString(cDatabase,'dbname','');
+        PQConnection1.UserName:= Sett.ReadString(cDatabase,'dbuser','');
+        PQConnection1.Password:= Sett.ReadString(cDatabase,'dbpass','');
+        PQConnection1.Transaction:= SQLTransaction1;
+        SQLQuery1.DataBase:= PQConnection1;
+        PQConnection1.Connected:= true;
     end
     else if (cDriver='oracleNative') then
     begin

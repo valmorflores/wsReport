@@ -1,29 +1,29 @@
 object frmMain: TfrmMain
-  Left = 365
+  Left = 294
   Height = 613
-  Top = 132
-  Width = 913
+  Top = 177
+  Width = 902
   Caption = 'Editor de relatórios'
-  ClientHeight = 593
-  ClientWidth = 913
+  ClientHeight = 613
+  ClientWidth = 902
   Menu = MainMenu1
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 34
     Top = 0
-    Width = 913
+    Width = 902
     Align = alTop
     ClientHeight = 34
-    ClientWidth = 913
+    ClientWidth = 902
     TabOrder = 0
     object edFile: TEdit
       Left = 1
       Height = 32
       Top = 1
-      Width = 911
+      Width = 900
       Align = alClient
       TabOrder = 0
     end
@@ -32,17 +32,17 @@ object frmMain: TfrmMain
     Left = 0
     Height = 242
     Top = 34
-    Width = 913
+    Width = 902
     Align = alTop
     Caption = 'Panel3'
     ClientHeight = 242
-    ClientWidth = 913
+    ClientWidth = 902
     TabOrder = 1
     object Panel2: TPanel
       Left = 1
       Height = 23
       Top = 1
-      Width = 911
+      Width = 900
       Align = alTop
       Caption = 'SQL'
       TabOrder = 0
@@ -51,7 +51,7 @@ object frmMain: TfrmMain
       Left = 1
       Height = 217
       Top = 24
-      Width = 911
+      Width = 900
       Align = alClient
       Lines.Strings = (
         'Memo1'
@@ -65,15 +65,15 @@ object frmMain: TfrmMain
     Left = 0
     Height = 12
     Top = 276
-    Width = 913
+    Width = 902
     Align = alTop
     ResizeAnchor = akTop
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 231
+    Height = 251
     Top = 288
-    Width = 913
+    Width = 902
     Align = alClient
     Color = clWindow
     Columns = <>
@@ -83,11 +83,11 @@ object frmMain: TfrmMain
   object Panel4: TPanel
     Left = 0
     Height = 74
-    Top = 519
-    Width = 913
+    Top = 539
+    Width = 902
     Align = alBottom
     ClientHeight = 74
-    ClientWidth = 913
+    ClientWidth = 902
     TabOrder = 4
     object Button1: TButton
       Left = 6
@@ -97,8 +97,8 @@ object frmMain: TfrmMain
       Align = alLeft
       BorderSpacing.Around = 5
       Caption = 'Executar'
-      OnClick = Button1Click
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Button2: TButton
       Left = 206
@@ -108,14 +108,14 @@ object frmMain: TfrmMain
       Align = alLeft
       BorderSpacing.Around = 5
       Caption = 'Desenhar'
-      OnClick = Button2Click
       TabOrder = 1
+      OnClick = Button2Click
     end
     object edFileLrf: TEdit
       Left = 306
       Height = 49
       Top = 1
-      Width = 606
+      Width = 595
       Align = alClient
       TabOrder = 2
       Visible = False
@@ -128,14 +128,14 @@ object frmMain: TfrmMain
       Align = alLeft
       BorderSpacing.Around = 5
       Caption = 'Visualizar'
-      OnClick = Button3Click
       TabOrder = 3
+      OnClick = Button3Click
     end
     object StatusBar1: TStatusBar
       Left = 1
       Height = 23
       Top = 50
-      Width = 911
+      Width = 900
       Panels = <      
         item
           Width = 600

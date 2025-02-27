@@ -57,7 +57,7 @@ implementation
 
 {$R *.lfm}
 
-
+uses pqconnection;
 
 
 { TfrmMain }
